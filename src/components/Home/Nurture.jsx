@@ -103,17 +103,7 @@ const Nurture = () => {
 
                 {hoveredItem === item.id && (
                   <div className="item-description-expanded">
-                    <div className="description-header">
-                      <i className={`bi ${item.icon}`}></i>
-                      <h4>{item.title}</h4>
-                    </div>
                     <p>{item.description}</p>
-                    <div className="description-footer">
-                      <div className="learn-more">
-                        <span>Learn more</span>
-                        <i className="bi bi-arrow-right"></i>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>
@@ -147,17 +137,7 @@ const Nurture = () => {
 
                 {hoveredItem === item.id && (
                   <div className="item-description-expanded">
-                    <div className="description-header">
-                      <i className={`bi ${item.icon}`}></i>
-                      <h4>{item.title}</h4>
-                    </div>
                     <p>{item.description}</p>
-                    <div className="description-footer">
-                      <div className="learn-more">
-                        <span>Learn more</span>
-                        <i className="bi bi-arrow-right"></i>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>

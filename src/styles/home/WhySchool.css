@@ -1,0 +1,395 @@
+.why-school-container {
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #eeeeee 0%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-school-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  align-items: start;
+}
+
+.header-left {
+  padding-right: 2rem;
+}
+
+.why-subtitle {
+  font-size: 1rem;
+  color: #3498db;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.why-title {
+  font-size: 3.5rem;
+  color: #1a365d;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.why-title .highlight {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.why-description {
+  font-size: 1.2rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.years-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid #e2e8f0;
+}
+
+.years-number {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #3498db;
+  line-height: 1;
+}
+
+.years-text {
+  font-size: 1rem;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-stats {
+  max-width: 400px;
+  width: 100%;
+}
+
+.stat-item {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: #3498db;
+}
+
+.stat-item.large {
+  margin-bottom: 1.5rem;
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stat-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.stat-content {
+  text-align: left;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a365d;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #3498db;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.stat-sub {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.small-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-item.small {
+  padding: 1.2rem;
+}
+
+.stat-item.small .stat-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0.8rem;
+}
+
+.stat-item.small .stat-icon i {
+  font-size: 1.3rem;
+}
+
+.stat-item.small .stat-number {
+  font-size: 1.3rem;
+}
+
+.stat-item.small .stat-label {
+  font-size: 1rem;
+}
+
+/* Reasons Grid */
+.why-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.reason-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reason-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.reason-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.reason-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.reason-content {
+  flex: 1;
+}
+
+.reason-title {
+  font-size: 1.5rem;
+  color: #1a365d;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.reason-description {
+  color: #4a5568;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.reason-stat {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* Safety Highlight */
+.safety-highlight {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.safety-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.safety-icon-large {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.safety-icon-large i {
+  font-size: 3rem;
+  color: white;
+}
+
+.safety-text {
+  flex: 1;
+}
+
+.safety-title {
+  font-size: 2rem;
+  color: #1a365d;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.safety-description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.safety-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.safety-point {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.safety-point i {
+  color: #2ecc71;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .why-school-header {
+    gap: 3rem;
+  }
+  
+  .why-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .why-school-container {
+    padding: 4rem 1.5rem;
+  }
+  
+  .why-school-header {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .header-left {
+    padding-right: 0;
+  }
+  
+  .header-right {
+    justify-content: flex-start;
+  }
+  
+  .main-stats {
+    max-width: 100%;
+  }
+  
+  .safety-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .safety-points {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-title {
+    font-size: 2.5rem;
+  }
+  
+  .years-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .small-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .why-reasons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-school-container {
+    padding: 3rem 1rem;
+    border-radius: 20px;
+  }
+  
+  .why-title {
+    font-size: 2rem;
+  }
+  
+  .why-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .safety-highlight {
+    padding: 2rem;
+  }
+  
+  .safety-title {
+    font-size: 1.5rem;
+  }
+}

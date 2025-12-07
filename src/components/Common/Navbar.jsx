@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import '../../styles/common/navbar.css'
 import { Link } from "react-router-dom";
 
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const dropdownTimeoutRef = useRef(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -42,10 +43,25 @@ const Navbar = () => {
   };
 
   const handleDropdownHover = (dropdown) => {
+    // Clear any existing timeout
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
     setActiveDropdown(dropdown);
   };
 
   const handleDropdownLeave = () => {
+    // Set a timeout before closing to allow clicking
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300); // 300ms delay
+  };
+
+  const handleDropdownItemClick = () => {
+    // Clear timeout and close dropdown immediately when item is clicked
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
     setActiveDropdown(null);
   };
 
@@ -61,13 +77,22 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light shadow-sm ${scrolled ? 'scrolled' : ''}`}">
+      <nav className={`navbar navbar-expand-lg navbar-light shadow-sm ${scrolled ? 'scrolled' : ''}`}>
         <div className="container-fluid px-4 px-lg-5">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img src="/logo.png" width={50} alt="logo" className="brand-logo" />
-          </a>
+          </Link>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -91,62 +116,64 @@ const Navbar = () => {
                 onMouseEnter={() => handleDropdownHover("about")}
                 onMouseLeave={handleDropdownLeave}
               >
-                <a
+                <Link
                   className="nav-link dropdown-toggle no-dropdown-arrow"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded={activeDropdown === "about" ? "true" : "false"}
                 >
                   About
-                </a>
+                </Link>
                 <ul
                   className={`dropdown-menu ${
                     activeDropdown === "about" ? "show" : ""
                   }`}
+                  onMouseEnter={() => handleDropdownHover("about")}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-info-circle me-2"></i>About Us
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-chat-text me-2"></i>Principal's
                       Message
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-people me-2"></i>Team
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li className="dropdown-submenu">
-                    <a
+                    <Link
                       className="dropdown-item dropdown-toggle no-dropdown-arrow"
-                      href="#"
+                      to="#"
                     >
                       <i className="bi bi-handshake me-2"></i>Our Partners
-                    </a>
+                    </Link>
                     <ul className="dropdown-menu dropdown-submenu-content">
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                           <i className="bi bi-award me-2"></i>Academic Partners
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                           <i className="bi bi-briefcase me-2"></i>Corporate
                           Partners
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                           <i className="bi bi-heart me-2"></i>Community Partners
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -159,9 +186,9 @@ const Navbar = () => {
                 onMouseEnter={() => handleDropdownHover("programs")}
                 onMouseLeave={handleDropdownLeave}
               >
-                <a
+                <Link
                   className="nav-link dropdown-toggle no-dropdown-arrow"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded={
@@ -169,39 +196,41 @@ const Navbar = () => {
                   }
                 >
                   Programs
-                </a>
+                </Link>
                 <ul
                   className={`dropdown-menu ${
                     activeDropdown === "programs" ? "show" : ""
                   }`}
+                  onMouseEnter={() => handleDropdownHover("programs")}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-balloon me-2"></i>Playgroup
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-book me-2"></i>Nursery
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-pencil me-2"></i>LKG
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-eraser me-2"></i>UKG
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-journal-text me-2"></i>Curriculum
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -212,9 +241,9 @@ const Navbar = () => {
                 onMouseEnter={() => handleDropdownHover("facilities")}
                 onMouseLeave={handleDropdownLeave}
               >
-                <a
+                <Link
                   className="nav-link dropdown-toggle no-dropdown-arrow"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded={
@@ -222,58 +251,60 @@ const Navbar = () => {
                   }
                 >
                   Facilities
-                </a>
+                </Link>
                 <ul
                   className={`dropdown-menu ${
                     activeDropdown === "facilities" ? "show" : ""
                   }`}
+                  onMouseEnter={() => handleDropdownHover("facilities")}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-house-door me-2"></i>Classroom
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-egg-fried me-2"></i>Dining
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-tree me-2"></i>Play Ground
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-bus-front me-2"></i>Transportation
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-shield-check me-2"></i>Safety and
                       Security
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
                       <i className="bi bi-heart-pulse me-2"></i>Medical
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
 
               {/* Legacy Link */}
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="#">
                   Legacy
-                </a>
+                </Link>
               </li>
 
               {/* Admission Button - Desktop */}
               <li className="nav-item ms-lg-2">
-                <a className="btn btn-primary admission-btn" href="#">
+                <Link className="btn btn-primary admission-btn" to="#">
                   <i className="bi bi-door-open me-2"></i>Admission
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -324,27 +355,27 @@ const Navbar = () => {
               </button>
               <div className="collapse" id="mobileAbout">
                 <div className="mobile-dropdown-content">
-                  <a
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-info-circle me-3"></i>About Us
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-chat-text me-3"></i>Principal's Message
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-people me-3"></i>Team
-                  </a>
+                  </Link>
 
                   {/* Partners Submenu */}
                   <div className="mobile-submenu-item">
@@ -360,28 +391,28 @@ const Navbar = () => {
                     </button>
                     <div className="collapse" id="mobilePartners">
                       <div className="mobile-subdropdown-content">
-                        <a
+                        <Link
                           className="mobile-subdropdown-item"
-                          href="#"
+                          to="#"
                           onClick={closeMobileMenu}
                         >
                           <i className="bi bi-award me-4"></i>Academic Partners
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="mobile-subdropdown-item"
-                          href="#"
+                          to="#"
                           onClick={closeMobileMenu}
                         >
                           <i className="bi bi-briefcase me-4"></i>Corporate
                           Partners
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                           className="mobile-subdropdown-item"
-                          href="#"
+                          to="#"
                           onClick={closeMobileMenu}
                         >
                           <i className="bi bi-heart me-4"></i>Community Partners
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -403,41 +434,41 @@ const Navbar = () => {
               </button>
               <div className="collapse" id="mobilePrograms">
                 <div className="mobile-dropdown-content">
-                  <a
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-balloon me-3"></i>Playgroup
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-book me-3"></i>Nursery
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-pencil me-3"></i>LKG
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-eraser me-3"></i>UKG
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-journal-text me-3"></i>Curriculum
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -456,91 +487,91 @@ const Navbar = () => {
               </button>
               <div className="collapse" id="mobileFacilities">
                 <div className="mobile-dropdown-content">
-                  <a
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-house-door me-3"></i>Classroom
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-egg-fried me-3"></i>Dining
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-tree me-3"></i>Play Ground
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-bus-front me-3"></i>Transportation
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-shield-check me-3"></i>Safety and
                     Security
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     className="mobile-dropdown-item"
-                    href="#"
+                    to="#"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-heart-pulse me-3"></i>Medical
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
             {/* Other Links */}
-            <a className="mobile-menu-item" href="#" onClick={closeMobileMenu}>
+            <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
                 <i className="bi bi-award me-3"></i>
                 <span>Legacy</span>
               </div>
-            </a>
+            </Link>
 
-            <a className="mobile-menu-item" href="#" onClick={closeMobileMenu}>
+            <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
                 <i className="bi bi-chat-heart me-3"></i>
                 <span>Parents Testimonials</span>
               </div>
-            </a>
+            </Link>
 
-            <a className="mobile-menu-item" href="#" onClick={closeMobileMenu}>
+            <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
                 <i className="bi bi-question-circle me-3"></i>
                 <span>FAQ</span>
               </div>
-            </a>
+            </Link>
 
-            <a className="mobile-menu-item" href="#" onClick={closeMobileMenu}>
+            <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
                 <i className="bi bi-envelope me-3"></i>
                 <span>Enquiry</span>
               </div>
-            </a>
+            </Link>
 
             {/* Admission Button Mobile */}
             <div className="mobile-menu-item mt-4">
-              <a
+              <Link
                 className="btn btn-primary w-100 admission-btn"
-                href="#"
+                to="#"
                 onClick={closeMobileMenu}
               >
                 <i className="bi bi-door-open me-2"></i>Admission
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -577,28 +608,28 @@ const Navbar = () => {
         <div className="sidebar-body">
           <ul className="nav flex-column">
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={closeSidebar}>
+              <Link className="nav-link" to="#" onClick={closeSidebar}>
                 <i className="bi bi-chat-heart me-3"></i>Parents Testimonials
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={closeSidebar}>
+              <Link className="nav-link" to="#" onClick={closeSidebar}>
                 <i className="bi bi-question-circle me-3"></i>FAQ
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#" onClick={closeSidebar}>
+              <Link className="nav-link" to="#" onClick={closeSidebar}>
                 <i className="bi bi-envelope me-3"></i>Enquiry
-              </a>
+              </Link>
             </li>
             <li className="nav-item mt-4">
-              <a
+              <Link
                 className="btn btn-primary w-100"
-                href="#"
+                to="#"
                 onClick={closeSidebar}
               >
                 <i className="bi bi-telephone me-2"></i>Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

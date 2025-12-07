@@ -19,6 +19,13 @@
   border-bottom: 3px solid #4a90e2 !important;
   transition: all 0.3s ease !important;
 }
+
+/* When scrolled, add shadow */
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  padding: 0.75rem 0 !important;
+}
+
 body {
   padding-top: 76px; /* Adjust based on your navbar height */
 }
@@ -66,16 +73,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* When scrolled, add shadow */
-.navbar.scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-  padding: 0.75rem 0 !important;
-}
-
-.brand-logo {
-  transition: transform 0.3s ease;
-}
-
 .brand-logo:hover {
   transform: scale(1.05);
 }
@@ -89,6 +86,10 @@ body {
   border-radius: 6px;
 }
 
+/* ==================== */
+/* IMPROVED DROPDOWN STYLES */
+/* ==================== */
+
 /* Dropdown Styles */
 .dropdown-menu {
   border: none;
@@ -98,6 +99,10 @@ body {
   margin-top: 0.5rem;
   min-width: 220px;
   animation: fadeIn 0.2s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  display: block !important;
 }
 
 @keyframes fadeIn {
@@ -111,6 +116,11 @@ body {
   }
 }
 
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 .dropdown-item {
   padding: 0.75rem 1rem !important;
   border-radius: 6px;
@@ -118,6 +128,7 @@ body {
   color: #2c3e50;
   display: flex;
   align-items: center;
+  transition: all 0.2s ease;
 }
 
 .dropdown-divider {
@@ -183,10 +194,6 @@ body {
     width: 80%;
   }
 
-  .dropdown-item {
-    transition: all 0.2s ease;
-  }
-
   .dropdown-item:hover {
     background-color: #4a90e2 !important;
     color: white !important;
@@ -213,13 +220,17 @@ body {
     transform: rotate(90deg);
   }
 
-  /* Hover effects for desktop dropdowns */
+  /* Improved hover effects for desktop dropdowns with better timing */
   .dropdown:hover > .dropdown-menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    animation: fadeIn 0.2s ease;
   }
   
-  .dropdown > .dropdown-toggle:active {
-    pointer-events: none;
+  /* Keep dropdown open when hovering over the menu */
+  .dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
   }
 
   /* Submenu for Partners */
@@ -233,10 +244,15 @@ body {
     top: 0;
     margin-left: 0.1rem;
     display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .dropdown-submenu:hover .dropdown-submenu-content {
     display: block;
+    opacity: 1;
+    visibility: visible;
     animation: slideIn 0.2s ease;
   }
 
@@ -584,6 +600,34 @@ body {
 
 /* Disable hover effects on mobile */
 @media (max-width: 991px) {
+  .nav-link,
+  .dropdown-item,
+  .admission-btn,
+  .sidebar-toggle-btn {
+    transition: none !important;
+  }
+
+  .nav-link:hover,
+  .dropdown-item:hover,
+  .admission-btn:hover,
+  .sidebar-toggle-btn:hover {
+    transform: none !important;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .dropdown-item:hover {
+    background-color: transparent !important;
+    color: #2c3e50 !important;
+  }
+
+  .admission-btn:hover {
+    background: linear-gradient(135deg, #4a90e2, #357abd) !important;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3) !important;
+  }
+
   .mobile-menu-link:hover,
   .mobile-dropdown-item:hover,
   .mobile-submenu-link:hover,

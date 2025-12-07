@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Navbar from "../components/Common/Navbar";
 import NotFound from "../pages/NotFound";
+import Footer from "../components/Common/Footer";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
         {/* 404 fallback */}
         <Route path="*" element={<NotFound />} />
       </Routes>
+    <Footer/>
     </BrowserRouter>
   );
 }
