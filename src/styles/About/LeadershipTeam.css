@@ -1,0 +1,250 @@
+/* LeadershipTeam.css */
+.leadership-team-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  align-items: start;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lt-content {
+  padding-left: 2rem;
+}
+
+.lt-header {
+  margin-bottom: 3rem;
+}
+
+.lt-subtitle {
+  font-size: 1rem;
+  color: #3498db;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.lt-title {
+  font-size: 2.8rem;
+  color: #1a365d;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+.lt-description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 500px;
+}
+
+.team-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.team-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 16px;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.team-image {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.team-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-frame {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid #3498db;
+  border-radius: 150px !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .image-frame {
+  opacity: 1;
+}
+
+.team-info {
+  flex: 1;
+}
+
+.team-name {
+  font-size: 1.3rem;
+  color: #1a365d;
+  margin: 0 0 0.3rem 0;
+  font-weight: 700;
+}
+
+.team-role {
+  font-size: 0.9rem;
+  color: #3498db;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.team-qualification {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 0.8rem;
+}
+
+.team-qualification i {
+  color: #2ecc71;
+  font-size: 0.9rem;
+}
+
+.team-description {
+  font-size: 0.9rem;
+  color: #4a5568;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.team-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-link {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3498db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.social-link:hover {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Image Section */
+.lt-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.lt-image .image-main {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+  border-radius: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .leadership-team-container {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .leadership-team-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .lt-content {
+    padding-left: 0;
+  }
+  
+  .lt-image {
+    order: -1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-team-container {
+    padding: 0 1.5rem;
+    margin: 3rem auto;
+  }
+  
+  .lt-title {
+    font-size: 2.2rem;
+  }
+  
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .team-image img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+  
+  .team-social {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .leadership-team-container {
+    padding: 0 1rem;
+  }
+  
+  .lt-title {
+    font-size: 1.8rem;
+  }
+  
+  .team-card {
+    padding: 1.2rem;
+  }
+}
