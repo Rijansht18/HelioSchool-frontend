@@ -144,7 +144,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/team" onClick={handleDropdownItemClick}>
                       <i className="bi bi-people me-2"></i>Team
                     </Link>
                   </li>
@@ -371,7 +371,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/team"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-people me-3"></i>Team

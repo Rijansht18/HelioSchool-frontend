@@ -1,0 +1,204 @@
+.specialist-team-container {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.specialist-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.specialist-title {
+  font-size: 2.8rem;
+  color: #1a365d;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+.specialist-subtitle {
+  font-size: 1.2rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.specialists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.specialist-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.4s ease;
+}
+
+.specialist-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.specialist-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.specialist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.specialist-card:hover .specialist-image img {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
+}
+
+.specialist-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.specialist-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -50px auto 1.5rem auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.specialist-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.specialist-name {
+  font-size: 1.4rem;
+  color: #1a365d;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.specialist-role {
+  font-size: 1rem;
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.specialist-description {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.specialist-connect {
+  margin-top: 1rem;
+}
+
+.connect-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.connect-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .specialists-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .specialist-team-container {
+    padding: 0 1.5rem;
+  }
+  
+  .specialist-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialists-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .specialist-title {
+    font-size: 2rem;
+  }
+  
+  .specialist-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .specialist-team-container {
+    padding: 0 1rem;
+  }
+  
+  .specialist-title {
+    font-size: 1.8rem;
+  }
+  
+  .specialist-content {
+    padding: 1.5rem;
+  }
+  
+  .specialist-icon {
+    width: 50px;
+    height: 50px;
+    margin: -40px auto 1.2rem auto;
+  }
+  
+  .specialist-icon i {
+    font-size: 1.5rem;
+  }
+}
