@@ -1,39 +1,71 @@
-.cta-container {
-  padding: 4rem 3rem;
+/* Wrapper to position child image */
+.cta-wrapper {
   position: relative;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+/* Child Image Box */
+.cta-child-image {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  width: 180px;
+  height: 180px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 8px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: all 0.3s ease;
-  min-height: 300px;
+}
+
+.cta-child-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Main CTA Container */
+.cta-container {
+  position: relative;
+  padding: 6rem 3rem 4rem;
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+  min-height: 360px;
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
 }
 
-/* Theme Variants */
-.cta-container.gradient {
-  background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
-  color: white;
+/* Helio Modern Theme */
+.cta-container.modern {
+  background: linear-gradient(135deg, #72133f, #7a1ae8);
+  color: #fff;
 }
 
-.cta-container.light {
-  background: white;
-  color: #1a365d;
-  border: 2px solid #e2e8f0;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+.cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  z-index: 1;
 }
 
-.cta-container.dark {
-  background: linear-gradient(135deg, #1a365d 0%, #2c3e50 100%);
-  color: white;
-}
-
+/* Content Layout */
 .cta-content {
-  width: 100%;
-  position: relative;
   z-index: 2;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   gap: 2rem;
 }
 
@@ -42,278 +74,120 @@
 }
 
 .cta-subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
-.cta-container.gradient .cta-subtitle {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.cta-container.light .cta-subtitle {
-  color: #3498db;
-}
-
-.cta-container.dark .cta-subtitle {
-  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.95;
 }
 
 .cta-title {
   font-size: 3rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.25;
   margin: 0;
+  max-width: 700px;
 }
 
-.cta-container.light .cta-title {
-  background: linear-gradient(135deg, #3498db, #2ecc71);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
+/* Buttons & Info */
 .cta-action {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1.5rem;
-  min-width: 200px;
+  gap: 1.7rem;
 }
 
 .cta-location {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-}
-
-.cta-container.gradient .cta-location {
-  background: rgba(255, 255, 255, 0.15);
-  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 60px;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cta-container.light .cta-location {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  color: white;
-  box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
-}
-
-.cta-container.dark .cta-location {
-  background: rgba(52, 152, 219, 0.2);
-  color: white;
-  border: 1px solid rgba(52, 152, 219, 0.3);
-  backdrop-filter: blur(10px);
-}
-
-.cta-location i {
-  font-size: 1rem;
 }
 
 .cta-button {
-  padding: 1.2rem 3rem;
-  border-radius: 50px;
-  font-size: 1.2rem;
+  padding: 1.2rem 2.8rem;
+  background: #fff;
+  color: #72133f;
   font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
-  min-width: 200px;
-  justify-content: center;
-}
-
-/* Gradient Theme Button */
-.cta-container.gradient .cta-button {
-  background: white;
-  color: #3498db;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.cta-container.gradient .cta-button:hover {
-  background: #f8fafc;
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Light Theme Button */
-.cta-container.light .cta-button {
-  background: linear-gradient(135deg, #3498db, #2ecc71);
-  color: white;
-  box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
-}
-
-.cta-container.light .cta-button:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(52, 152, 219, 0.4);
-}
-
-/* Dark Theme Button */
-.cta-container.dark .cta-button {
-  background: linear-gradient(135deg, #3498db, #2ecc71);
-  color: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.cta-container.dark .cta-button:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-.cta-button i {
+  border-radius: 60px;
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
 }
 
-.cta-button:hover i {
-  transform: translateX(5px);
+.cta-button:hover {
+  transform: translateY(-6px);
 }
 
-/* Decorative Elements */
+/* Decorations */
 .cta-decoration {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: 1;
+  inset: 0;
+  z-index: 0;
 }
 
-.deco-circle {
+.deco-floating {
   position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  opacity: 0.1;
+  top: -70px;
+  right: -60px;
+  animation: float 6s ease-in-out infinite;
 }
 
-.deco-1 {
-  width: 200px;
-  height: 200px;
-  background: white;
-  top: -100px;
-  right: -100px;
+.deco-floating.small {
+  width: 110px;
+  height: 110px;
+  bottom: -40px;
+  left: -30px;
+  animation-duration: 7s;
 }
 
-.deco-2 {
-  width: 150px;
-  height: 150px;
-  background: white;
-  bottom: -75px;
-  left: -75px;
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(22px); }
+  100% { transform: translateY(0px); }
 }
 
-.deco-3 {
-  width: 100px;
-  height: 100px;
-  background: white;
-  top: 50%;
-  left: 60%;
-}
-
-.cta-container.light .deco-circle {
-  background: #3498db;
-}
-
-.cta-container.dark .deco-circle {
-  background: white;
-}
-
-.deco-line {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 60px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 2px;
-}
-
-.cta-container.light .deco-line {
-  background: #3498db;
-}
-
-.cta-container.dark .deco-line {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 992px) {
-  .cta-container {
-    padding: 3rem 2rem;
-  }
-  
   .cta-content {
     flex-direction: column;
     text-align: center;
-    gap: 2.5rem;
+    align-items: center;
   }
-  
-  .cta-title {
-    font-size: 2.5rem;
-  }
-  
+
   .cta-action {
     align-items: center;
   }
-  
-  .cta-button {
-    min-width: 250px;
-  }
-}
 
-@media (max-width: 768px) {
-  .cta-container {
-    padding: 2.5rem 1.5rem;
-    border-radius: 20px;
-  }
-  
   .cta-title {
-    font-size: 2rem;
-  }
-  
-  .cta-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .cta-button {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    min-width: 220px;
-  }
-  
-  .cta-location {
-    padding: 0.4rem 1rem;
-    font-size: 0.85rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .cta-container {
-    padding: 2rem 1rem;
+
+  .cta-child-image {
+    width: 150px;
+    height: 150px;
+    top: -55px;
   }
-  
+
   .cta-title {
-    font-size: 1.8rem;
-  }
-  
-  .cta-button {
-    padding: 0.9rem 1.5rem;
-    font-size: 1rem;
-    min-width: 200px;
-  }
-  
-  .cta-location {
-    font-size: 0.8rem;
+    font-size: 2rem;
   }
 }

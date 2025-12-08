@@ -74,6 +74,12 @@
   animation: pulse 4s ease-in-out infinite;
 }
 
+.center-logo img {
+  width: 140px;
+  height: 120px;
+  object-fit: contain;
+}
+
 .center-logo i {
   font-size: 4.5rem;
   color: white;
@@ -131,6 +137,7 @@
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 3;
+  cursor: pointer;
 }
 
 .stage-point.top-left { top: 25%; left: 25%; }
@@ -164,6 +171,11 @@
   border: 3px solid white;
   position: relative;
   z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.point-dot:hover {
+  transform: scale(1.1);
 }
 
 .point-dot i {
@@ -182,6 +194,7 @@
   transform: translateY(10px);
   transition: all 0.3s ease;
   pointer-events: none;
+  z-index: 10;
 }
 
 .top-left .stage-content { top: -120px; left: 80px; }
@@ -272,9 +285,10 @@
   color: #1a365d;
 }
 
+/* DESKTOP SAFETY CARD - Top right position */
 .safety-overlay {
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   right: 5%;
   z-index: 5;
 }
@@ -288,6 +302,11 @@
   text-align: center;
   min-width: 200px;
   backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.safety-card:hover {
+  transform: translateY(-5px);
 }
 
 .safety-icon {
@@ -344,27 +363,7 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .journey-timeline {
-    height: 700px;
-  }
-  
-  .timeline-circle {
-    width: 600px;
-    height: 600px;
-  }
-  
-  .center-logo {
-    width: 150px;
-    height: 150px;
-  }
-  
-  .center-logo i {
-    font-size: 4rem;
-  }
-}
-
+/* TABLET RESPONSIVE STYLES (768px - 992px) */
 @media (max-width: 992px) {
   .lifecycle-container {
     padding: 4rem 1.5rem;
@@ -388,45 +387,9 @@
     height: 130px;
   }
   
-  .center-logo i {
-    font-size: 3.5rem;
-  }
-  
-  .point-dot {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .journey-start {
-    left: 5%;
-  }
-  
-  .journey-end {
-    right: 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .lifecycle-title {
-    font-size: 2.2rem;
-  }
-  
-  .journey-timeline {
-    height: 500px;
-  }
-  
-  .timeline-circle {
-    width: 400px;
-    height: 400px;
-  }
-  
-  .center-logo {
+  .center-logo img {
     width: 100px;
-    height: 100px;
-  }
-  
-  .center-logo i {
-    font-size: 2.8rem;
+    height: 85px;
   }
   
   .center-text {
@@ -443,8 +406,8 @@
   }
   
   .point-dot {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   
   .point-dot i {
@@ -453,7 +416,7 @@
   
   .stage-content {
     padding: 1rem;
-    min-width: 150px;
+    min-width: 160px;
   }
   
   .stage-age {
@@ -462,6 +425,22 @@
   
   .stage-title {
     font-size: 1rem;
+  }
+  
+  .stage-description {
+    font-size: 0.85rem;
+  }
+  
+  .right-middle .stage-content {
+    left: -220px;
+  }
+  
+  .journey-start {
+    left: 5%;
+  }
+  
+  .journey-end {
+    right: 5%;
   }
   
   .journey-marker {
@@ -473,41 +452,478 @@
   .journey-marker i {
     font-size: 1.4rem;
   }
+  
+  .start-age,
+  .end-age {
+    font-size: 1.5rem;
+  }
+  
+  /* TABLET SAFETY CARD - Move to bottom center */
+  .safety-overlay {
+    display: none;
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 220px;
+    margin: 0;
+  }
+  
+  .safety-card {
+    backdrop-filter: none;
+    text-align: center;
+  }
 }
 
-@media (max-width: 576px) {
+/* MOBILE RESPONSIVE STYLES (576px - 768px) */
+@media (max-width: 768px) {
+  .lifecycle-container {
+    padding: 3rem 1rem;
+  }
+  
+  .lifecycle-title {
+    font-size: 2.2rem;
+  }
+  
+  .lifecycle-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  
+  .lifecycle-description {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+  
   .journey-timeline {
-    height: 400px;
+    height: 500px;
   }
   
   .timeline-circle {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
+  }
+  
+  .center-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .center-logo img {
+    width: 80px;
+    height: 70px;
+  }
+  
+  .center-text {
+    padding: 1.2rem 1.5rem;
+    min-width: 180px;
+  }
+  
+  .establish-date {
+    font-size: 1.3rem;
+  }
+  
+  .center-title {
+    font-size: 1.3rem;
+  }
+  
+  .center-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .point-dot {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .point-dot i {
+    font-size: 1rem;
+  }
+  
+  .point-connector {
+    width: 80px;
+  }
+  
+  .top-left .point-connector { top: -15px; left: 20px; }
+  .top-right .point-connector { top: -15px; right: 20px; }
+  .right-middle .point-connector { left: -100px; }
+  .bottom-right .point-connector { bottom: -15px; right: 20px; }
+  .bottom-left .point-connector { bottom: -15px; left: 20px; }
+  
+  .stage-content {
+    padding: 0.8rem;
+    min-width: 140px;
+  }
+  
+  .stage-age {
+    font-size: 1rem;
+  }
+  
+  .stage-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .stage-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .top-left .stage-content { top: -100px; left: 60px; }
+  .top-right .stage-content { top: -100px; right: 60px; }
+  .right-middle .stage-content { left: -180px; top: -40px; }
+  .bottom-right .stage-content { bottom: -100px; right: 60px; }
+  .bottom-left .stage-content { bottom: -100px; left: 60px; }
+  
+  /* Hide journey markers on mobile */
+  .journey-start,
+  .journey-end {
+    display: none;
+  }
+  
+  /* MOBILE SAFETY CARD - Fixed bottom position */
+  .safety-overlay {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 280px;
+    z-index: 100;
+  }
+  
+  .safety-card {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e74c3c;
+    backdrop-filter: none;
+    animation: safetyPulse 2s ease-in-out infinite;
+  }
+  
+  .safety-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .safety-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .safety-title {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .safety-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  @keyframes safetyPulse {
+    0%, 100% {
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2);
+    }
+    50% {
+      box-shadow: 0 8px 30px rgba(231, 76, 60, 0.3);
+    }
+  }
+}
+
+/* SMALL MOBILE RESPONSIVE STYLES (below 576px) */
+@media (max-width: 576px) {
+  .lifecycle-container {
+    padding: 2.5rem 0.5rem;
+  }
+  
+  .lifecycle-title {
+    font-size: 1.8rem;
+  }
+  
+  .lifecycle-subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .lifecycle-description {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .journey-timeline {
+    height: 420px;
+    margin: 1.5rem auto;
+  }
+  
+  .timeline-circle {
+    width: 320px;
+    height: 320px;
   }
   
   .center-logo {
     width: 80px;
     height: 80px;
+    margin-bottom: 1rem;
   }
   
-  .center-logo i {
-    font-size: 2rem;
+  .center-logo img {
+    width: 65px;
+    height: 55px;
   }
   
   .center-text {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.2rem;
     min-width: 160px;
   }
   
   .establish-date {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
   
   .center-title {
+    font-size: 1.1rem;
+  }
+  
+  .center-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .point-dot {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .point-dot i {
+    font-size: 0.9rem;
+  }
+  
+  .point-connector {
+    width: 60px;
+    height: 1.5px;
+  }
+  
+  .top-left .point-connector { top: -10px; left: 15px; }
+  .top-right .point-connector { top: -10px; right: 15px; }
+  .right-middle .point-connector { left: -80px; }
+  .bottom-right .point-connector { bottom: -10px; right: 15px; }
+  .bottom-left .point-connector { bottom: -10px; left: 15px; }
+  
+  .top-left .stage-content { 
+    top: -90px; 
+    left: 50px; 
+    min-width: 130px;
+  }
+  .top-right .stage-content { 
+    top: -90px; 
+    right: 50px; 
+    min-width: 130px;
+  }
+  .right-middle .stage-content { 
+    left: -150px; 
+    top: -35px;
+    min-width: 140px;
+  }
+  .bottom-right .stage-content { 
+    bottom: -90px; 
+    right: 50px; 
+    min-width: 130px;
+  }
+  .bottom-left .stage-content { 
+    bottom: -90px; 
+    left: 50px; 
+    min-width: 130px;
+  }
+  
+  .stage-content {
+    padding: 0.7rem;
+  }
+  
+  .stage-age {
+    font-size: 0.9rem;
+  }
+  
+  .stage-title {
+    font-size: 0.85rem;
+  }
+  
+  .stage-description {
+    font-size: 0.75rem;
+  }
+  
+  /* SMALL MOBILE SAFETY CARD */
+  .safety-overlay {
+    bottom: 15px;
+    width: 95%;
+    max-width: 250px;
+  }
+  
+  .safety-card {
+    padding: 1rem;
+  }
+  
+  .safety-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.6rem;
+  }
+  
+  .safety-icon i {
+    font-size: 1.3rem;
+  }
+  
+  .safety-title {
+    font-size: 0.95rem;
+  }
+  
+  .safety-description {
+    font-size: 0.8rem;
+  }
+}
+
+/* VERY SMALL MOBILE SCREENS (below 400px) */
+@media (max-width: 400px) {
+  .timeline-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .journey-timeline {
+    height: 380px;
+  }
+  
+  .center-logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .center-logo img {
+    width: 55px;
+    height: 45px;
+  }
+  
+  .center-text {
+    padding: 0.8rem 1rem;
+    min-width: 140px;
+  }
+  
+  .establish-date {
+    font-size: 1rem;
+  }
+  
+  .center-title {
+    font-size: 1rem;
+  }
+  
+  .point-dot {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .point-dot i {
+    font-size: 0.8rem;
+  }
+  
+  .point-connector {
+    width: 50px;
+  }
+  
+  .top-left .point-connector { left: 10px; }
+  .top-right .point-connector { right: 10px; }
+  .right-middle .point-connector { left: -70px; }
+  .bottom-right .point-connector { right: 10px; }
+  .bottom-left .point-connector { left: 10px; }
+  
+  .top-left .stage-content { 
+    top: -80px; 
+    left: 40px; 
+    min-width: 120px;
+  }
+  .top-right .stage-content { 
+    top: -80px; 
+    right: 40px; 
+    min-width: 120px;
+  }
+  .right-middle .stage-content { 
+    left: -130px; 
+    top: -30px;
+    min-width: 120px;
+  }
+  .bottom-right .stage-content { 
+    bottom: -80px; 
+    right: 40px; 
+    min-width: 120px;
+  }
+  .bottom-left .stage-content { 
+    bottom: -80px; 
+    left: 40px; 
+    min-width: 120px;
+  }
+  
+  .stage-content {
+    padding: 0.6rem;
+  }
+  
+  .stage-description {
+    display: none; /* Hide description on very small screens */
+  }
+  
+  /* VERY SMALL SAFETY CARD */
+  .safety-overlay {
+    bottom: 10px;
+    max-width: 220px;
+  }
+  
+  .safety-card {
+    padding: 0.8rem;
+  }
+  
+  .safety-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .safety-icon i {
     font-size: 1.2rem;
   }
   
-  .safety-overlay {
-    display: none;
+  .safety-title {
+    font-size: 0.9rem;
+  }
+  
+  .safety-description {
+    font-size: 0.75rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .stage-point {
+    touch-action: manipulation;
+  }
+  
+  .point-dot:hover {
+    transform: none;
+  }
+  
+  .stage-point:hover .stage-content {
+    opacity: 0;
+  }
+  
+  /* Show content on tap instead of hover */
+  .stage-point.active .stage-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .stage-point.active .point-dot {
+    transform: scale(1.1);
+  }
+  
+  /* Disable hover effects on safety card for touch */
+  .safety-card:hover {
+    transform: none;
   }
 }

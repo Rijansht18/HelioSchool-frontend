@@ -133,7 +133,7 @@ const Navbar = () => {
                   onMouseLeave={handleDropdownLeave}
                 >
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/about" onClick={handleDropdownItemClick}>
                       <i className="bi bi-info-circle me-2"></i>About Us
                     </Link>
                   </li>
@@ -357,7 +357,7 @@ const Navbar = () => {
                 <div className="mobile-dropdown-content">
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/about"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-info-circle me-3"></i>About Us

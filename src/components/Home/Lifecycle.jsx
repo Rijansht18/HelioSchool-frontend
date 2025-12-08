@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../styles/home/Lifecycle.css'
 
 const Lifecycle = () => {
+  const [activeStage, setActiveStage] = useState(null);
+  
   const journeyStages = [
     {
       id: 1,
@@ -50,6 +52,14 @@ const Lifecycle = () => {
     }
   ];
 
+  const handleStageClick = (id) => {
+    if (activeStage === id) {
+      setActiveStage(null);
+    } else {
+      setActiveStage(id);
+    }
+  };
+
   return (
     <div className="lifecycle-container">
       <div className="lifecycle-header">
@@ -63,7 +73,7 @@ const Lifecycle = () => {
       <div className="journey-timeline">
         <div className="timeline-center">
           <div className="center-logo">
-            <img src="/logo.png" width={140} height={120} alt="logo" srcset="" />
+            <img src="/logo.png" alt="Helio School Logo" />
           </div>
           <div className="center-text">
             <div className="establish-date">Est. 2062 B.S.</div>
@@ -77,7 +87,13 @@ const Lifecycle = () => {
           <div className="circle-path"></div>
           
           {journeyStages.map((stage) => (
-            <div key={stage.id} className={`stage-point ${stage.position}`}>
+            <div 
+              key={stage.id} 
+              className={`stage-point ${stage.position} ${activeStage === stage.id ? 'active' : ''}`}
+              onMouseEnter={() => setActiveStage(stage.id)}
+              onMouseLeave={() => setActiveStage(null)}
+              onClick={() => handleStageClick(stage.id)}
+            >
               <div className="point-connector"></div>
               <div className="point-dot" style={{ backgroundColor: stage.color }}>
                 <i className={`bi ${stage.icon}`}></i>
@@ -93,7 +109,7 @@ const Lifecycle = () => {
           ))}
         </div>
         
-        {/* Start and End Points */}
+        {/* Start and End Points - Hidden on mobile via CSS */}
         <div className="journey-start">
           <div className="journey-marker start">
             <i className="bi bi-flag-fill"></i>
@@ -110,7 +126,7 @@ const Lifecycle = () => {
           <div className="end-age">Age 6</div>
         </div>
         
-        {/* Safety Section */}
+        {/* Safety Section - Responsive positioning */}
         <div className="safety-overlay">
           <div className="safety-card">
             <div className="safety-icon">

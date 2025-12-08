@@ -235,18 +235,15 @@
     font-size: 1rem;
   }
   
-  .item-description-expanded {
-    position: fixed;
-    top: 50%;
-    left: 1rem;
-    right: 1rem;
-    transform: translateY(-50%);
-    max-height: 80vh;
-    overflow-y: auto;
-    z-index: 1000;
+   .item-description-expanded {
+    display: none;
   }
-  
-  .item-description-expanded::before {
+
+  .item-indicator{
+    display: none;
+  }
+
+  .item-preview{
     display: none;
   }
   
@@ -287,7 +284,15 @@
   }
   
   .item-description-expanded {
-    padding: 1.5rem;
+    display: none;
+  }
+
+  .item-indicator{
+    display: none;
+  }
+
+  .item-preview{
+    display: none;
   }
   
   .item-description-expanded p {
