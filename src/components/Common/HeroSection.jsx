@@ -1,12 +1,11 @@
 import React from 'react'
-import '../../styles/common/HeroSection.css'
+import '../../styles/Common/HeroSection.css'
 
 const HeroSection = ({ 
   title, 
   badgeText, 
   showBreadcrumb = true,
   breadcrumbItems = [{ label: 'Home', path: '/' }],
-  scrollIndicator = false,
   backgroundImage = "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
   overlayOpacity = 0.5,
   className = "",

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/about/MissionValues.css'
+import '../../styles/About/MissionValues.css'
 
 const MissionValues = () => {
   const values = [

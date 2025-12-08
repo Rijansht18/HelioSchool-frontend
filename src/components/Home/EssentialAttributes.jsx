@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../styles/home/EssentialAttributes.css'
+import '../../styles/Home/EssentialAttributes.css'
 
 const essentialData = [
   {

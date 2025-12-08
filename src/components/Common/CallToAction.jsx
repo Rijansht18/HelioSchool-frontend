@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/common/CallToAction.css";
+import "../../styles/Common/CallToAction.css";
 
 const CallToAction = ({
   title = "Join us for a World-Class Education",

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/about/LeadershipTeam.css'
+import '../../styles/About/LeadershipTeam.css'
 
 const LeadershipTeam = () => {
   const teamMembers = [

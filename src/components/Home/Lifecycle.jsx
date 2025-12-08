@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../styles/home/Lifecycle.css'
+import '../../styles/Home/Lifecycle.css'
 
 const Lifecycle = () => {
   const [activeStage, setActiveStage] = useState(null);

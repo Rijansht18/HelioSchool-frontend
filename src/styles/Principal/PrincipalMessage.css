@@ -1,0 +1,517 @@
+/* PrincipalMessage.css */
+.principal-message-container {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  width: 100%;
+}
+
+/* Header Section */
+.message-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  align-items: start;
+}
+
+.header-content {
+  padding-right: 2rem;
+}
+
+.message-title {
+  font-size: 3.2rem;
+  color: #1a365d;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.greeting {
+  margin-top: 2rem;
+}
+
+.greeting-text {
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.4;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Principal Card */
+.principal-card {
+  position: relative;
+}
+
+.principal-image-wrapper {
+  background: white;
+  border-radius: 25px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.principal-image-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+}
+
+.principal-image {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 2rem;
+}
+
+.principal-photo {
+  width: 100%;
+  height: 280px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.1);
+  transition: all 0.5s ease;
+}
+
+.principal-image-wrapper:hover .principal-photo {
+  filter: grayscale(0);
+  transform: scale(1.02);
+}
+
+.image-frame {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid #667eea;
+  border-radius: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.principal-image-wrapper:hover .image-frame {
+  opacity: 0.3;
+}
+
+.image-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.principal-image-wrapper:hover .image-glow {
+  opacity: 1;
+}
+
+.principal-info {
+  text-align: center;
+}
+
+.principal-name {
+  font-size: 1.8rem;
+  color: #1a365d;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.principal-title {
+  font-size: 1.1rem;
+  color: #667eea;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.school-name {
+  font-size: 1rem;
+  color: #718096;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.principal-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.principal-contact i {
+  color: #667eea;
+}
+
+/* Message Sections */
+.message-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.message-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.message-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #667eea, #764ba2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.message-card:hover::before {
+  opacity: 1;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.section-icon i {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #1a365d;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.card-content {
+  padding-left: 5rem;
+}
+
+.content-paragraph {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.8;
+  margin: 0 0 1.2rem 0;
+}
+
+.content-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.card-decoration {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.deco-line {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #667eea, transparent);
+  width: 100px;
+  margin: 0 auto;
+}
+
+/* Signature Section */
+.signature-section {
+  margin-top: 4rem;
+}
+
+.signature-wrapper {
+  background: linear-gradient(135deg, #1a365d, #2c3e50);
+  border-radius: 25px;
+  padding: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.signature-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="1" opacity="0.05"/></svg>');
+  opacity: 0.5;
+}
+
+.signature-content {
+  position: relative;
+  z-index: 1;
+}
+
+.closing-text {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 0 0 1.5rem 0;
+}
+
+.signature-name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.signature-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.signature-title {
+  font-weight: 700;
+}
+
+.signature-separator {
+  opacity: 0.5;
+}
+
+.signature-school {
+  opacity: 0.9;
+}
+
+.signature-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+.signature-stamp i {
+  color: #ffd700;
+}
+
+.signature-image {
+  position: relative;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature-ink {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.signature-image i {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.3);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .message-header {
+    gap: 3rem;
+  }
+  
+  .message-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .message-header {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .header-content {
+    padding-right: 0;
+  }
+  
+  .principal-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .card-content {
+    padding-left: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .principal-message-container {
+    padding: 0 1.5rem;
+    margin: 3rem auto;
+  }
+  
+  .message-title {
+    font-size: 2.2rem;
+  }
+  
+  .principal-image {
+    max-width: 240px;
+  }
+  
+  .principal-photo {
+    height: 240px;
+  }
+  
+  .section-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .section-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-content {
+    padding-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .signature-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding: 2.5rem;
+  }
+  
+  .signature-details {
+    justify-content: center;
+  }
+  
+  .signature-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .principal-message-container {
+    padding: 0 1rem;
+  }
+  
+  .message-title {
+    font-size: 1.8rem;
+  }
+  
+  .principal-image-wrapper {
+    padding: 2rem;
+  }
+  
+  .principal-name {
+    font-size: 1.5rem;
+  }
+  
+  .message-card {
+    padding: 2rem;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .signature-name {
+    font-size: 2rem;
+  }
+}

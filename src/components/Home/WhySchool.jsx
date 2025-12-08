@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/home/WhySchool.css";
+import "../../styles/Home/WhySchool.css";
 
 const WhySchool = () => {
   const reasons = [

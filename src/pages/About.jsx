@@ -14,9 +14,9 @@ const About = () => {
         height="35vh"
         breadcrumbItems={[
           { label: "Home", path: "/", icon: "bi-house" },
+          { label: "About", path: "" },
           { label: "About Us", path: "/about" },
         ]}
-        scrollIndicator={false}
         backgroundImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
       />
 

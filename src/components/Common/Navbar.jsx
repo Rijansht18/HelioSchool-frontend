@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import '../../styles/common/navbar.css'
+import '../../styles/Common/navbar.css'
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -138,7 +138,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/principal" onClick={handleDropdownItemClick}>
                       <i className="bi bi-chat-text me-2"></i>Principal's
                       Message
                     </Link>
@@ -364,7 +364,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/principal"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-chat-text me-3"></i>Principal's Message

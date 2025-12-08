@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/home/Nurture.css";
+import "../../styles/Home/Nurture.css";
 
 const nurtureData = [
   {
