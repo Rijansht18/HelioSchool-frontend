@@ -205,22 +205,22 @@ const Navbar = () => {
                   onMouseLeave={handleDropdownLeave}
                 >
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/playgroup" onClick={handleDropdownItemClick}>
                       <i className="bi bi-balloon me-2"></i>Playgroup
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/nursery" onClick={handleDropdownItemClick}>
                       <i className="bi bi-book me-2"></i>Nursery
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/lkg" onClick={handleDropdownItemClick}>
                       <i className="bi bi-pencil me-2"></i>LKG
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/ukg" onClick={handleDropdownItemClick}>
                       <i className="bi bi-eraser me-2"></i>UKG
                     </Link>
                   </li>
@@ -235,62 +235,11 @@ const Navbar = () => {
                 </ul>
               </li>
 
-              {/* Facilities Dropdown */}
-              <li
-                className="nav-item dropdown"
-                onMouseEnter={() => handleDropdownHover("facilities")}
-                onMouseLeave={handleDropdownLeave}
-              >
-                <Link
-                  className="nav-link dropdown-toggle no-dropdown-arrow"
-                  to="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded={
-                    activeDropdown === "facilities" ? "true" : "false"
-                  }
-                >
+              {/* Facilities Link */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/facilities">
                   Facilities
                 </Link>
-                <ul
-                  className={`dropdown-menu ${
-                    activeDropdown === "facilities" ? "show" : ""
-                  }`}
-                  onMouseEnter={() => handleDropdownHover("facilities")}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-house-door me-2"></i>Classroom
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-egg-fried me-2"></i>Dining
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-tree me-2"></i>Play Ground
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-bus-front me-2"></i>Transportation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-shield-check me-2"></i>Safety and
-                      Security
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
-                      <i className="bi bi-heart-pulse me-2"></i>Medical
-                    </Link>
-                  </li>
-                </ul>
               </li>
 
               {/* Legacy Link */}
@@ -436,28 +385,28 @@ const Navbar = () => {
                 <div className="mobile-dropdown-content">
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/playgroup"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-balloon me-3"></i>Playgroup
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/nursery"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-book me-3"></i>Nursery
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/lkg"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-pencil me-3"></i>LKG
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/ukg"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-eraser me-3"></i>UKG
@@ -473,66 +422,13 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Facilities Dropdown Mobile */}
-            <div className="mobile-menu-item">
-              <button
-                className="mobile-menu-link"
-                data-bs-toggle="collapse"
-                href="#mobileFacilities"
-                type="button"
-              >
+            {/* Facilities Link Mobile */}
+            <Link className="mobile-menu-item" to="/facilities" onClick={closeMobileMenu}>
+              <div className="mobile-menu-link">
                 <i className="bi bi-building me-3"></i>
                 <span>Facilities</span>
-                <i className="bi bi-chevron-down mobile-dropdown-icon"></i>
-              </button>
-              <div className="collapse" id="mobileFacilities">
-                <div className="mobile-dropdown-content">
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-house-door me-3"></i>Classroom
-                  </Link>
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-egg-fried me-3"></i>Dining
-                  </Link>
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-tree me-3"></i>Play Ground
-                  </Link>
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-bus-front me-3"></i>Transportation
-                  </Link>
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-shield-check me-3"></i>Safety and
-                    Security
-                  </Link>
-                  <Link
-                    className="mobile-dropdown-item"
-                    to="#"
-                    onClick={closeMobileMenu}
-                  >
-                    <i className="bi bi-heart-pulse me-3"></i>Medical
-                  </Link>
-                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Other Links */}
             <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
