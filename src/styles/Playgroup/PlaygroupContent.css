@@ -1,13 +1,29 @@
 .playgroup-content {
   padding: 60px 0 80px;
-  background: linear-gradient(135deg, #fff5e6 0%, #ffffff 50%, #e6f0ff 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #f0f9ff 100%);
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.playgroup-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background-image: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(2, 132, 199, 0.1) 0%, transparent 50%);
+  z-index: 1;
 }
 
 /* Hero Section */
 .hero-section {
   margin-bottom: 60px;
   animation: fadeIn 0.8s ease-out;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-text {
@@ -19,7 +35,7 @@
 .badge-tag {
   display: inline-block;
   padding: 8px 20px;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
   color: white;
   border-radius: 50px;
   font-size: 0.85rem;
@@ -28,7 +44,7 @@
   letter-spacing: 1px;
   margin-bottom: 20px;
   width: fit-content;
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
 }
 
 .hero-text h1 {
@@ -70,14 +86,14 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
   color: white;
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
 }
 
 .btn-outline {
@@ -87,8 +103,8 @@
 }
 
 .btn-outline:hover {
-  border-color: #6366f1;
-  color: #6366f1;
+  border-color: #0ea5e9;
+  color: #0ea5e9;
   transform: translateY(-3px);
 }
 
@@ -99,21 +115,21 @@
 }
 
 .info-card {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
   padding: 25px;
   border-radius: 16px;
-  border: 2px solid #fed7aa;
+  border: 2px solid #bae6fd;
   transition: all 0.3s ease;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
 }
 
 .info-card i {
   font-size: 2rem;
-  color: #f59e0b;
+  color: #0284c7;
   margin-bottom: 10px;
 }
 
@@ -150,7 +166,7 @@
   right: -20px;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
   border-radius: 20px;
   z-index: -1;
 }
@@ -176,6 +192,8 @@
 /* Content Grid */
 .content-grid {
   margin-top: 60px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Curriculum Section */
@@ -209,22 +227,22 @@
 }
 
 .curriculum-card {
-  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
   padding: 30px;
   border-radius: 16px;
-  border: 2px solid #fde68a;
+  border: 2px solid #bae6fd;
   transition: all 0.3s ease;
 }
 
 .curriculum-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
-  border-color: #fbbf24;
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+  border-color: #0ea5e9;
 }
 
 .curriculum-card i {
   font-size: 2.5rem;
-  color: #f59e0b;
+  color: #0284c7;
   margin-bottom: 15px;
 }
 
@@ -261,15 +279,15 @@
 .teacher-card {
   text-align: center;
   padding: 30px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
   border-radius: 16px;
   transition: all 0.3s ease;
-  border: 2px solid #c7d2fe;
+  border: 2px solid #bae6fd;
 }
 
 .teacher-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
 }
 
 .teacher-card img {
@@ -292,7 +310,7 @@
 .teacher-card .role {
   display: block;
   font-size: 0.85rem;
-  color: #6366f1;
+  color: #0ea5e9;
   font-weight: 600;
   margin-bottom: 15px;
   text-transform: uppercase;
@@ -380,7 +398,7 @@
 }
 
 .quick-info i {
-  color: #6366f1;
+  color: #0ea5e9;
   font-size: 1.1rem;
 }
 
@@ -401,7 +419,7 @@
 }
 
 .schedule-item .time {
-  color: #6366f1;
+  color: #0ea5e9;
   font-weight: 600;
 }
 
@@ -420,7 +438,7 @@
 }
 
 .contact i {
-  color: #6366f1;
+  color: #0ea5e9;
 }
 
 .w-100 {
@@ -431,7 +449,7 @@
 .testimonials blockquote {
   padding: 15px;
   background: #f8fafc;
-  border-left: 4px solid #6366f1;
+  border-left: 4px solid #0ea5e9;
   border-radius: 8px;
   margin-bottom: 15px;
   font-size: 0.9rem;
@@ -525,8 +543,8 @@
 .enrollment-form input:focus,
 .enrollment-form textarea:focus {
   outline: none;
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
 }
 
 .enrollment-form textarea {

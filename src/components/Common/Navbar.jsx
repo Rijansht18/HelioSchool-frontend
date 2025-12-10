@@ -251,7 +251,7 @@ const Navbar = () => {
 
               {/* Admission Button - Desktop */}
               <li className="nav-item ms-lg-2">
-                <Link className="btn btn-primary admission-btn" to="#">
+                <Link className="btn btn-primary admission-btn" to="/admission">
                   <i className="bi bi-door-open me-2"></i>Admission
                 </Link>
               </li>
@@ -463,7 +463,7 @@ const Navbar = () => {
             <div className="mobile-menu-item mt-4">
               <Link
                 className="btn btn-primary w-100 admission-btn"
-                to="#"
+                to="/admission"
                 onClick={closeMobileMenu}
               >
                 <i className="bi bi-door-open me-2"></i>Admission

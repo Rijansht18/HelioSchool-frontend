@@ -1,55 +1,22 @@
 .nursery-content {
   padding: 60px 0 80px;
-  background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #fef3c7 100%);
+  background: linear-gradient(135deg, #d1fae5 0%, #ffffff 50%, #ecfdf5 100%);
   min-height: 100vh;
   position: relative;
   overflow: hidden;
 }
 
-/* Floating Icons */
-.floating-icons {
+/* Background Pattern */
+.nursery-content::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 200px;
-  pointer-events: none;
+  height: 300px;
+  background-image: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.1) 0%, transparent 50%);
   z-index: 1;
-}
-
-.float-icon {
-  position: absolute;
-  font-size: 3rem;
-  animation: float 3s ease-in-out infinite;
-}
-
-.icon-1 {
-  left: 15%;
-  top: 50px;
-  animation-duration: 3s;
-}
-
-.icon-2 {
-  left: 50%;
-  top: 30px;
-  animation-duration: 2.5s;
-  animation-delay: 0.5s;
-}
-
-.icon-3 {
-  right: 15%;
-  top: 60px;
-  animation-duration: 3.5s;
-  animation-delay: 1s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
 }
 
 /* Hero Section */
