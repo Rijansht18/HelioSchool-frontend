@@ -7,6 +7,7 @@ import Footer from "../components/Common/Footer";
 import Principal from "../pages/Principal";
 import Team from "../pages/Team";
 import Facilities from "../pages/Facilities";
+import Curriculum from "../pages/Curriculum";
 import Playgroup from "../pages/Playgroup";
 import Nursery from "../pages/Nursery";
 import LKG from "../pages/LKG";
@@ -22,6 +23,7 @@ export default function AppRouter() {
           <Route path="/principal" element={<Principal />} />
           <Route path="/team" element={<Team />} />
           <Route path="/facilities" element={<Facilities />} />
+          <Route path="/curriculum" element={<Curriculum />} />
           <Route path="/playgroup" element={<Playgroup />} />
           <Route path="/nursery" element={<Nursery />} />
           <Route path="/lkg" element={<LKG />} />

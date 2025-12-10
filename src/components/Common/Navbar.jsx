@@ -228,7 +228,7 @@ const Navbar = () => {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="#" onClick={handleDropdownItemClick}>
+                    <Link className="dropdown-item" to="/curriculum" onClick={handleDropdownItemClick}>
                       <i className="bi bi-journal-text me-2"></i>Curriculum
                     </Link>
                   </li>
@@ -413,7 +413,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     className="mobile-dropdown-item"
-                    to="#"
+                    to="/curriculum"
                     onClick={closeMobileMenu}
                   >
                     <i className="bi bi-journal-text me-3"></i>Curriculum
