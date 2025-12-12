@@ -1,6 +1,4 @@
-
-
-import { useState } from "react"
+import React, { useState } from "react";
 
 function Icon({ type }) {
   const icons = {
@@ -146,17 +144,20 @@ function Icon({ type }) {
         <circle cx="7" cy="18" r="2" />
         <circle cx="17" cy="18" r="2" />
       </svg>
-    ),
-  }
+    )
+  };
 
-  return <div className="facility-icon">{icons[type]}</div>
+  return <div className="facility-icon">{icons[type]}</div>;
 }
 
 export default function FacilityCard({ facility }) {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={`facility-card-modern ${isExpanded ? "open" : ""}`} onClick={() => setIsExpanded(!isExpanded)}>
+    <div
+      className={`facility-card-modern ${isExpanded ? "open" : ""}`}
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
       <div className="card-bg-gradient"></div>
       <div className="card-content">
         <div className="card-header">
@@ -164,6 +165,7 @@ export default function FacilityCard({ facility }) {
             <Icon type={facility.iconType} />
             <h3 className="facility-title">{facility.title}</h3>
           </div>
+
           <div className={`chevron-modern ${isExpanded ? "rotated" : ""}`}>
             <svg
               viewBox="0 0 24 24"
@@ -185,7 +187,11 @@ export default function FacilityCard({ facility }) {
             <h4 className="features-title">Key Features:</h4>
             <ul className="features-list">
               {facility.features.map((feature, index) => (
-                <li key={index} className="feature-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                <li
+                  key={index}
+                  className="feature-item"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <span className="feature-checkmark">
                     <svg viewBox="0 0 16 16" fill="currentColor">
                       <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
@@ -198,7 +204,8 @@ export default function FacilityCard({ facility }) {
           </div>
         </div>
       </div>
+
       <div className="card-border"></div>
     </div>
-  )
+  );
 }

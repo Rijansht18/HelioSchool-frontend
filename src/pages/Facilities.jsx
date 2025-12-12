@@ -1,3 +1,4 @@
+import React from "react"
 import FacilityCard from "../components/Facilities/FacilityCard"
 import "../styles/Facilities/FacilitiesContent.css"
 
@@ -137,24 +138,24 @@ export default function Facilities() {
 
   return (
     <div className="facilities-page">
+      
       {/* Header Section */}
-      <header className="facilities-header">
-        <div className="header-bg-gradient"></div>
-        <div className="header-content">
-          <div className="header-badge">
-            <span className="badge-emoji">✨</span>
-            <span className="badge-text">WORLD-CLASS FACILITIES</span>
-          </div>
-          <h1 className="main-title">
-            Everything Your Child Needs to
-            <span className="title-gradient"> Thrive & Grow</span>
-          </h1>
-          <p className="main-description">
-            Discover our comprehensive range of facilities designed to provide a safe, nurturing, and enriching
-            environment for your child's development.
-          </p>
+      <div style={{ padding: '80px 20px', textAlign: 'center', background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f9ff 100%)' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '24px', padding: '8px 16px', background: 'rgba(14, 165, 233, 0.1)', borderRadius: '50px', border: '1px solid rgba(14, 165, 233, 0.2)' }}>
+          <span style={{ fontSize: '1.5rem' }}>✨</span>
+          <span style={{ fontSize: '0.875rem', fontWeight: '600', color: '#0284c7' }}>WORLD-CLASS FACILITIES</span>
         </div>
-      </header>
+
+        <h1 style={{ fontSize: '3.5rem', fontWeight: '800', color: '#0f172a', marginBottom: '24px', lineHeight: '1.1' }}>
+          Everything Your Child Needs to
+          <span style={{ display: 'block', background: 'linear-gradient(90deg, #0284c7 0%, #0ea5e9 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}> Thrive & Grow</span>
+        </h1>
+
+        <p style={{ fontSize: '1.125rem', color: '#64748b', maxWidth: '600px', margin: '0 auto', lineHeight: '1.7' }}>
+          Discover our comprehensive range of facilities designed to provide a safe, nurturing, and enriching
+          environment for your child's development.
+        </p>
+      </div>
 
       {/* Facilities Grid */}
       <section className="facilities-content">
