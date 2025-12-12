@@ -51,7 +51,7 @@
 .badge-tag {
   display: inline-block;
   background: rgba(255, 255, 255, 0.9);
-  color: #1e293b;
+  color: #1a365d;
   padding: 8px 20px;
   border-radius: 25px;
   font-size: 0.9rem;
@@ -65,7 +65,7 @@
 .hero-text h1 {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #1e293b;
+  color: #1a365d;
   margin-bottom: 20px;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -73,7 +73,7 @@
 
 .hero-text p {
   font-size: 1.2rem;
-  color: #64748b;
+  color: #4a5568;
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -88,7 +88,7 @@
 
 .class-tab {
   background: rgba(255, 255, 255, 0.8);
-  color: #64748b;
+  color: #4a5568;
   border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 12px 24px;
   border-radius: 25px;
@@ -101,7 +101,7 @@
 .class-tab:hover {
   background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
-  color: #1e293b;
+  color: #1a365d;
 }
 
 .amber-theme .class-tab.active {
@@ -197,13 +197,13 @@
 .activities-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #1a365d;
   margin-bottom: 16px;
 }
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #4a5568;
   margin-bottom: 50px;
 }
 
@@ -241,7 +241,7 @@
 .activity-card h4 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #1a365d;
   margin-bottom: 12px;
 }
 
@@ -260,7 +260,7 @@
 .approach-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #1a365d;
   margin-bottom: 40px;
 }
 
@@ -295,7 +295,7 @@
 .approach-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #1a365d;
   margin-bottom: 12px;
 }
 

@@ -201,12 +201,12 @@
 .form-header h2 {
   font-size: 2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #1a365d;
   margin: 0;
 }
 
 .form-subtitle {
-  color: #64748b;
+  color: #4a5568;
   margin-bottom: 30px;
 }
 
@@ -230,7 +230,7 @@
 
 .form-group label {
   font-weight: 600;
-  color: #374151;
+  color: #1a365d;
   margin-bottom: 8px;
   font-size: 0.9rem;
 }
@@ -363,7 +363,7 @@
 .card-header h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #1a365d;
   margin: 0;
 }
 
@@ -395,7 +395,7 @@
 
 .contact-item {
   padding: 8px 0;
-  color: #64748b;
+  color: #4a5568;
   border-bottom: 1px solid #f1f5f9;
 }
 
@@ -404,7 +404,7 @@
 }
 
 .contact-item strong {
-  color: #1e293b;
+  color: #1a365d;
 }
 
 .fee-item {
@@ -413,13 +413,13 @@
   align-items: center;
   padding: 12px 0;
   border-bottom: 1px solid #f1f5f9;
-  color: #64748b;
+  color: #4a5568;
 }
 
 .fee-item:last-child {
   border-bottom: none;
   font-weight: 600;
-  color: #1e293b;
+  color: #1a365d;
 }
 
 /* Animation Classes */

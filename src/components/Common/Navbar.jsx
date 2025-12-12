@@ -242,12 +242,21 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              {/* Gallery Link */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/gallery">
+                  Gallery
+                </Link>
+              </li>
+
               {/* Legacy Link */}
               <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/legacy">
                   Legacy
                 </Link>
               </li>
+
+
 
               {/* Admission Button - Desktop */}
               <li className="nav-item ms-lg-2">
@@ -430,13 +439,23 @@ const Navbar = () => {
               </div>
             </Link>
 
-            {/* Other Links */}
-            <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
+            {/* Gallery Link Mobile */}
+            <Link className="mobile-menu-item" to="/gallery" onClick={closeMobileMenu}>
+              <div className="mobile-menu-link">
+                <i className="bi bi-images me-3"></i>
+                <span>Gallery</span>
+              </div>
+            </Link>
+
+            {/* Legacy Link Mobile */}
+            <Link className="mobile-menu-item" to="/legacy" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
                 <i className="bi bi-award me-3"></i>
                 <span>Legacy</span>
               </div>
             </Link>
+
+            {/* Other Links */}
 
             <Link className="mobile-menu-item" to="#" onClick={closeMobileMenu}>
               <div className="mobile-menu-link">
