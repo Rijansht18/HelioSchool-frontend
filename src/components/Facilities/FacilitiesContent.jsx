@@ -1,175 +1,204 @@
-import React from "react";
-import FacilityCard from "./FacilityCard";
-import "../../styles/Facilities/FacilitiesContent.css";
 
-const FacilitiesContent = () => {
-  const facilitiesData = [
-    {
-      id: 1,
-      icon: "🍽️",
-      title: "Meals & Nutrition",
-      description: "Fresh, healthy, and well-balanced meals prepared daily under strict hygiene standards with nutritionist-approved menus.",
-      features: [
-        "Nutritious multi-course meals developed with dieticians",
-        "Special meal consideration for allergies",
-        "Hands-on food learning activities",
-        "Zero junk food policy"
-      ],
-    },
-    {
-      id: 2,
-      icon: "🛡️",
-      title: "Health & Safety",
-      description: "High safety standards with regular medical check-ups by certified pediatricians to ensure children stay healthy and protected.",
-      features: [
-        "No child is left unsupervised, indoors or outdoors",
-        "Contagious illness policy strictly followed",
-        "Parents must update about allergies and health conditions",
-        "Emergency contact information always accessible"
-      ],
-    },
-    {
-      id: 3,
-      icon: "💊",
-      title: "Medical Support",
-      description: "Professional medication management with trained staff and detailed tracking systems for all medical needs.",
-      features: [
-        "Trained staff for medication administration",
-        "Detailed medication tracking system",
-        "Emergency medical action plans on file",
-        "Immediate parent contact for health issues"
-      ],
-    },
-    {
-      id: 4,
-      icon: "🩹",
-      title: "Accident & First Aid",
-      description: "Every staff member is trained in First Aid with immediate response protocols and comprehensive documentation.",
-      features: [
-        "Certified First Aid trained staff",
-        "Complete accident documentation",
-        "24/7 emergency response protocol",
-        "Direct hospital partnerships"
-      ],
-    },
-    {
-      id: 5,
-      icon: "🧼",
-      title: "Hygiene & Sanitation",
-      description: "Strict hygiene standards with mandatory handwashing and regular sanitization of all areas and equipment.",
-      features: [
-        "Daily deep cleaning protocols",
-        "Hand hygiene education for children",
-        "Infection control measures in place",
-        "Health information sheets for parents"
-      ],
-    },
-    {
-      id: 6,
-      icon: "💉",
-      title: "Child Immunization",
-      description: "Complete immunization tracking following national guidelines with regular updates and medical exemption support.",
-      features: [
-        "Immunization record verification",
-        "Regular update reminders to parents",
-        "Medical exemption documentation accepted",
-        "Annual immunization updates required"
-      ],
-    },
-    {
-      id: 7,
-      icon: "😊",
-      title: "Dental Care",
-      description: "Comprehensive dental health programs with age-appropriate guidance and low-sugar nutrition policies.",
-      features: [
-        "Dental hygiene education programs",
-        "Low-sugar nutrition policy",
-        "Regular dental health newsletters",
-        "Water encouraged after meals"
-      ],
-    },
-    {
-      id: 8,
-      icon: "🏃",
-      title: "Play Area & Activity Zone",
-      description: "Safe, age-appropriate indoor and outdoor play areas designed to develop motor skills, creativity, and confidence.",
-      features: [
-        "Soft flooring for safety",
-        "Outdoor slides, swings, bridges & tunnels",
-        "Imaginative play corners",
-        "Daily structured physical activities"
-      ],
-    },
-    {
-      id: 9,
-      icon: "📚",
-      title: "Library & Reading Corner",
-      description: "Cozy reading area with age-appropriate stories, picture books, and early learning materials to foster love for reading.",
-      features: [
-        "Weekly storytelling sessions",
-        "Creative reading activities",
-        "Interactive books for early literacy",
-        "Comfortable reading nooks"
-      ],
-    },
-    {
-      id: 10,
-      icon: "🚌",
-      title: "Transportation Services",
-      description: "Safe, reliable transportation with trained attendants, GPS tracking, and strict safety protocols for peace of mind.",
-      features: [
-        "Seatbelts mandatory for all children",
-        "Real-time attendance on pickup/drop",
-        "GPS-tracked vehicles",
-        "Strict behavioral safety rules"
-      ],
-    },
-  ];
+
+import { useState } from "react"
+
+function Icon({ type }) {
+  const icons = {
+    meals: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+        <path d="M7 2v20" />
+        <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+      </svg>
+    ),
+    safety: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+    medical: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z" />
+        <path d="M12 8v8" />
+        <path d="M8 12h8" />
+      </svg>
+    ),
+    firstaid: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
+        <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
+        <circle cx="20" cy="10" r="2" />
+      </svg>
+    ),
+    hygiene: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M18 6 7 17l-5-5" />
+        <path d="m22 10-7.5 7.5L13 16" />
+      </svg>
+    ),
+    vaccination: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m18 2 4 4" />
+        <path d="m17 7 3-3" />
+        <path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5" />
+        <path d="m9 11 4 4" />
+        <path d="m5 19-3 3" />
+        <path d="m14 4 6 6" />
+      </svg>
+    ),
+    dental: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2c-4.418 0-8 4.03-8 9 0 3.5 2 6.5 2 10 0 1.1.9 2 2 2h8a2 2 0 0 0 2-2c0-3.5 2-6.5 2-10 0-4.97-3.582-9-8-9Z" />
+        <path d="M8 21v-2" />
+        <path d="M16 21v-2" />
+      </svg>
+    ),
+    play: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+        <path d="M3 3v5h5" />
+      </svg>
+    ),
+    library: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+        <path d="M8 7h6" />
+        <path d="M8 11h8" />
+      </svg>
+    ),
+    transport: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M8 6v6" />
+        <path d="M15 6v6" />
+        <path d="M2 12h19.6" />
+        <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+        <circle cx="7" cy="18" r="2" />
+        <circle cx="17" cy="18" r="2" />
+      </svg>
+    ),
+  }
+
+  return <div className="facility-icon">{icons[type]}</div>
+}
+
+export default function FacilityCard({ facility }) {
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
-    <div className="facilities-page">
-      {/* Header Section */}
-      <div className="facilities-header">
-        <div className="header-bg-gradient" />
-        <div className="header-content">
-          <div className="header-badge">
-            <span className="badge-emoji">✨</span>
-            <span className="badge-text">Premium Facilities</span>
+    <div className={`facility-card-modern ${isExpanded ? "open" : ""}`} onClick={() => setIsExpanded(!isExpanded)}>
+      <div className="card-bg-gradient"></div>
+      <div className="card-content">
+        <div className="card-header">
+          <div className="header-left">
+            <Icon type={facility.iconType} />
+            <h3 className="facility-title">{facility.title}</h3>
           </div>
-          <h1 className="main-title">
-            World-Class
-            <span className="title-gradient">
-              Amenities & Services
-            </span>
-          </h1>
-          <p className="main-description">
-            Explore our comprehensive range of facilities designed to enhance your child's learning journey. From nutrition to safety, we have everything covered.
-          </p>
+          <div className={`chevron-modern ${isExpanded ? "rotated" : ""}`}>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
         </div>
-      </div>
 
-      {/* Facilities Grid */}
-      <div className="facilities-content">
-        <div className="facilities-grid-modern">
-          {facilitiesData.map((facility) => (
-            <FacilityCard key={facility.id} facility={facility} />
-          ))}
-        </div>
-      </div>
+        <p className="facility-description">{facility.description}</p>
 
-      {/* Footer CTA */}
-      <div className="facilities-footer">
-        <div className="footer-bg-pattern" />
-        <div className="footer-content">
-          <h2 className="footer-title">Ready to Experience Excellence?</h2>
-          <p className="footer-description">Join our community and access all these amazing facilities.</p>
-          <button className="cta-button">
-            Get Started Today
-          </button>
+        <div className={`expandable-content ${isExpanded ? "expanded" : ""}`}>
+          <div className="content-inner">
+            <h4 className="features-title">Key Features:</h4>
+            <ul className="features-list">
+              {facility.features.map((feature, index) => (
+                <li key={index} className="feature-item" style={{ animationDelay: `${index * 0.1}s` }}>
+                  <span className="feature-checkmark">
+                    <svg viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                    </svg>
+                  </span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
+      <div className="card-border"></div>
     </div>
-  );
-};
-
-export default FacilitiesContent;
+  )
+}
